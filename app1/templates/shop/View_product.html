@@ -1,0 +1,451 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.10.25/af-2.3.7/date-1.1.0/r-2.2.9/rg-1.1.3/sc-2.0.4/sp-1.3.0/datatables.min.css"/>
+  <title>View </title>
+  
+  <style type="text/css">
+    .btnAdd {
+      text-align: right;
+      width: 50%;
+      height: auto;
+    }
+    
+    input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+#example {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#example td {
+  border: 1px solid  #e6e6e6;
+  padding: 8px;
+}
+
+#example tr:nth-child(even){background-color: #f2f2f2;}
+
+#example tr:hover {background-color: #ddd;}
+
+#example th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+}
+
+  </style>
+<style>
+  input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+</style>
+
+
+</head>
+<script src="{% static  'jquery-2.1.4.min.js' %}"></script>
+
+
+ 
+
+
+<script>
+
+  $(document).ready(function() {
+  
+    $.ajax({url:"/Get_products/",
+            data:{
+                
+  
+            },
+        success:function(data1){
+          // var assign2=JSON.parse(data)
+          console.log(data1)
+              $('#example').DataTable({
+                  sScrollX: "100%" , sScrollXInner: "100%", 
+                data: data1,
+                columns:[
+                {data: "pid"},
+                {data: "name"},
+                {data: "cat"},
+                {data: "subcat"},
+                {data: "price"},
+                {data: "info"},
+                {data: "stock"},
+               
+            
+                ],
+     
+                "aoColumnDefs": [
+             {
+                  "aTargets": [7],
+                  "mRender": function () {
+                      return '<a href="#!" data-id="" data-bs-toggle="modal" data-bs-target="#addUserModal"   class="btn btn-success btn-sm" id="editbtn" >Edit</a>  <a href="#!" data-bs-toggle="modal" " data-bs-target="#exampleModal" class="btn btn-danger btn-sm" id="deletebtn">Delete</a>';
+                  },
+         
+              }
+           ]
+               });
+            },
+            error: function(error){
+              console.log(error);
+              }
+            });
+      });
+  
+  
+  
+    </script>
+<body onload='googleTranslateElementInit()'>
+  <label style="display: none;" id="langid">{{lang}}</label>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>               <div class="select">
+      .
+<div style="display: none;" id="google_translate_element"></div>
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+var lang=document.getElementById("langid").innerHTML
+console.log("language==>"+lang)
+if(lang=="ml")
+{
+$.when(
+new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ml',
+layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element')
+).done(function(){
+var select = document.getElementsByClassName('goog-te-combo')[0];
+select.selectedIndex = 1;
+select.addEventListener('click', function () {
+select.dispatchEvent(new Event('change'));
+});
+select.click();
+});
+
+}
+else{
+
+
+}
+}
+</script>
+
+    
+  <div class="container-fluid">
+    <h2 class="text-center">View Products</h2>
+    <p class="datatable design text-center">You can update or remove product</p>
+    <!-- <div class="row"> -->
+      <!-- <div class="container"> -->
+        
+       <!-- <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8"> -->
+         <table id="example" class="table">
+          <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+               <th>Category</th>
+               <th>Sub category</th>
+               <th>Price</th>
+               <th>Info</th>
+             <th>Stock</th>
+             
+            
+             <th>Edit/Delete</th>
+         
+         
+             </tr>
+          </thead>
+          <tbody>
+         
+          </tbody>
+          
+        </table>
+      <!-- </div>
+      <div class="col-md-2"></div> -->
+    <!-- </div> -->
+  </div>
+<!-- </div>
+</div> -->
+<!-- Optional JavaScript; choose one of the two! -->
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.10.25/af-2.3.7/date-1.1.0/r-2.2.9/rg-1.1.3/sc-2.0.4/sp-1.3.0/datatables.min.js"></script>
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+
+  
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="updateUser" >
+          <input type="hidden" name="id" id="did" value="">
+          <h5 id="cnfm"></h5>
+          <br>
+            <button type="submit" id="dtbtn" class="btn btn-primary" style="background-color: tomato;border-color: tomato;">Yes</button> 
+            <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+
+        </form> 
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+<!-- Add user Modal -->
+<div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update User</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <input type="hidden" name="userid" id="userid" >
+          <div class="mb-3 row">
+            <label for="addUserField" class="col-md-3 form-label">Product Name</label>
+            <div class="col-md-9">
+              <input type="number" class="form-control" id="pname" name="name" >
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="addEmailField" class="col-md-3 form-label">Price</label>
+            <div class="col-md-9">
+              <input type="email" class="form-control" id="prc" name="email">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="addMobileField" class="col-md-3 form-label">Description</label>
+            <div class="col-md-9">
+              <input type="number" class="form-control" id="des" name="mobile">
+            </div>
+          </div>
+         
+          <div class="mb-3 row">
+            <label for="addCityField" class="col-md-3 form-label">Stock</label>
+            <div class="col-md-9">
+              <input type="number" class="form-control" id="stck" name="addr">
+            </div>
+          </div>
+          
+
+          <!-- <div class="mb-3 row"> -->
+            <center>
+            <label for="addCityField" class="col-md-3 form-label">Change image</label>
+          <fieldset name="Multiple Files Upload">
+            {% if msg %} {% autoescape off %} {{ msg }} {% endautoescape %} {% endif %}
+            <div id="msg"></div>
+            <p>
+                {% csrf_token %}
+                <input type="file" id="multiFiles" name="files[]" multiple="multiple"/>
+                <!-- <button id="upload">Upload</button> -->
+            </p>
+        </fieldset>
+      </center>
+<!-- </div> -->
+      
+          <div class="text-center">
+            <button type="submit" id="saveuser" class="btn btn-primary">SAVE</button>
+          </div>
+       
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+var emailflag=0;
+var phoneflag=0;
+  $("#saveuser").click(function(){
+    
+    var form_data = new FormData();
+
+                  var pid=$('#userid').val();
+
+                  var pname=$('#pname').val();
+                  
+                  var price=$('#prc').val();
+                  var info=$('#des').val();
+                  var stck=$('#stck').val();
+                  var ins = document.getElementById('multiFiles').files.length;
+                
+                  
+                  
+                  if(pname=="" || price=="" || info=="" || stck==""){
+
+                    alert("Please provide all product details!!")
+                    }
+                    
+                  
+                  else{
+ 
+                            // alert(sts)
+                  for (var x = 0; x < ins; x++) {
+                    form_data.append("files[]", document.getElementById('multiFiles').files[x]);
+                  }
+                  form_data.append("pid", pid);
+                  form_data.append("pname", pname);
+                  form_data.append("price", price);
+                  form_data.append("info", info);
+                  form_data.append("stck", stck);
+                  csrf_token = $('input[name="csrfmiddlewaretoken"]').val();
+                  
+                  //console.log(csrf_token);
+                  
+                  form_data.append("csrfmiddlewaretoken", csrf_token);
+                  
+                  $.ajax({
+                    url: "/update_item/", // point to server-side URL
+                    dataType: 'json', // what to expect back from server
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    //data: {'data': form_data, 'csrfmiddlewaretoken': csrf_token},
+                    data: form_data,
+                    type: 'post',
+                    success: function (response) { // display success response
+                      if(response.msg=="exist"){
+                        alert("Product name already exist!!")
+                      }
+                      else if(response.msg=="yes"){
+                        alert("Product Updated successfully ")
+                        window.location.href="{% url 'View_items' %}"
+                      }
+                      else{
+                        alert("Some error occured!!!")
+                      }
+                    },
+                    error: function (response) {
+                       // display error response
+                    }
+                  });
+
+
+
+                }
+      
+    
+  }); 
+
+
+  $("#dtbtn").click(function(){
+    
+    uid=$('#did').val();
+    console.log(uid)
+ 
+          $.ajax({url:"/Delete_employee/",
+          data:{
+              "uid":uid,
+              
+
+          },
+      success:function(da){
+                 
+             if(da.info=="no")  {
+               alert("Oops!!! some error occured\nTry again later")
+               
+             }  
+             else{
+              alert("Deleted  Sucessfully!!")
+             
+             }
+          
+      }
+    });
+      
+      
+    
+  }); 
+
+// code to read selected table row cell data (values).
+$("#example").on('click','#editbtn',function(){
+    
+     // get the current row
+     var currentRow=$(this).closest("tr"); 
+   
+     var userid=currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+     var name=currentRow.find("td:eq(1)").text(); // get current row 2nd TD
+     var price=currentRow.find("td:eq(4)").text(); // get current row 3rd TD
+     var info=currentRow.find("td:eq(5)").text()
+     var stck=currentRow.find("td:eq(6)").text();
+    
+   
+    var username=currentRow.find("td:eq(7)").text(); 
+    var password=currentRow.find("td:eq(8)").text();
+    document.getElementById("userid").setAttribute('value',userid);
+     document.getElementById("pname").setAttribute('value',name);
+     document.getElementById("prc").setAttribute('value',price);
+     document.getElementById("des").setAttribute('value',info);
+
+     
+     
+     document.getElementById("stck").setAttribute('value',stck);
+   
+    //  alert(data);
+});
+
+$("#example").on('click','#deletebtn',function(){
+    
+    // get the current row
+    var currentRow=$(this).closest("tr"); 
+  
+    var userid=currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+    var name=currentRow.find("td:eq(1)").text(); // get current row 2nd TD
+   document.getElementById("did").setAttribute('value',userid);
+    document.getElementById("cnfm").innerHTML="Are you really want to delete "+name+" ?"
+   
+});
+$("#saveuser").on('click','#deletebtn',function(){
+    
+    // get the current row
+    var currentRow=$(this).closest("tr"); 
+  
+    var userid=currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+    var name=currentRow.find("td:eq(1)").text(); // get current row 2nd TD
+   document.getElementById("did").setAttribute('value',userid);
+    document.getElementById("cnfm").innerHTML="Are you really want to delete "+name+" ?"
+   
+});
+
+});
+
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.10.25/af-2.3.7/date-1.1.0/r-2.2.9/rg-1.1.3/sc-2.0.4/sp-1.3.0/datatables.min.js"></script>
+  
+<!-- 
+<script type="text/javascript">
+    var table = $('#example').DataTable();
+  </script> -->
+</body>
+</html>
+
+
+

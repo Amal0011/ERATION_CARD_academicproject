@@ -1,0 +1,294 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>customer shop</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/iconfonts/ionicons/dist/css/ionicons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/css/vendor.bundle.base.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/css/vendor.bundle.addons.css' %}">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{% static 'assets/css/shared/style.css' %}">
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{% static 'assets/css/demo_1/style.css' %}">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+
+    <style>.button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      border-radius: 5px;
+      color: white;
+      padding: 16px 62px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+    .button2 {
+      background-color: white; 
+      color: black; 
+      border: 2px solid #3ddd45;
+    }
+    
+    .button2:hover {
+      background-color: #3ddd45;
+      color: white;
+    }
+    
+    
+    .button3 {
+      background-color: white; 
+      color: black; 
+      border: 2px solid #f54c36;
+    }
+    
+    .button3:hover {
+      background-color: #f54c36;
+      color: white;
+    }
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      
+      #customers tr:nth-child(even){background-color: #f2f2f2;}
+      
+      #customers tr:hover {background-color: #ddd;}
+      
+      #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+      }
+    </style>
+     <style>
+      html *
+  {
+  
+   
+   font-family: Arial !important;
+  }
+    </style>
+  </head>
+
+  <body >
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <label style="display: none;" id="langid">{{lang}}</label>
+        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center" style="background-color: rgb(8, 88, 163);">
+          <a class="navbar-brand brand-logo" href="#"> Welcome Customer</a>
+         
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center">
+         
+    
+          <ul class="navbar-nav ml-auto">
+            
+            
+            <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
+              <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                <img class="img-xs rounded-circle" src="{% static 'assets/images/faces/face8.jpg' %}" alt="Profile image"> </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              
+                <a class="dropdown-item"  href="{% url 'LoginPage' %}" >Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
+              </div>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper" >
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar" style="background: rgb(37, 24, 151);" >
+          <ul class="nav" style="background-color: rgb(37, 24, 151);">
+           
+            <li class="nav-item nav-category">Main Menu</li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Customerhome' %}">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Dashboard</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'View_stores' %}">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Purchase Ration</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Customer_history' %}">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">View purchase history</span>
+              </a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'LoginPage' %}">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Logout</span>
+              </a>
+            </li>
+         
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <center>
+            <div style="width: 100%;">
+<h3>Search shops by district</h3>
+              <div>
+                <input class="form-control" id="dist" style="width: 280px;height: 50px;" type="text" placeholder="Enter district name" >
+
+                  </div>
+                  <div>
+                    <button style="padding: 8px 62px;margin-top: 10px;" class="button button3" id="srch">Search</button>
+    
+                      </div>
+
+                      <table id="customers" >
+                        <thead>
+                          <tr><th>id</th><th>Owner Name</th><th>Panchayath/Municipality</th><th>Rating</th><th>Select</th></td></tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+            </div>
+          </center>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+      
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{% static 'assets/vendors/js/vendor.bundle.base.js' %}"></script>
+    <script src="{% static 'assets/vendors/js/vendor.bundle.addons.js' %}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="{% static 'assets/js/shared/off-canvas.js' %}"></script>
+    <script src="{% static 'assets/js/shared/misc.js' %}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="{% static 'assets/js/demo_1/dashboard.js' %}"></script>
+    <!-- End custom js for this page-->
+    <script src="{% static 'assets/js/shared/jquery.cookie.js' %}" type="text/javascript"></script>
+  </body>
+  <script>
+    
+
+
+
+          $("#srch").click(function(){
+            
+
+                
+            dist=$('#dist').val();
+
+         alert(dist)
+        
+          
+          if(dist==""){
+            alert("Please Enter district name")
+          }
+          
+          
+            else{
+              $.ajax({url:"/Get_my_shops/",
+                data:{
+                    
+                    
+                    "dist":dist,
+                    
+      
+                },
+                
+            success:function(da){
+              if(da.datalist.length!=0){
+
+
+                $("#customers tr").remove(); 
+                  var rows=" <tr><th>id</th><th>Owner Name</th><th>Panchayath/Municipality</th><th>Rating</th><th>Select</th></td></tr>"
+                  
+                for(i=0;i<da.datalist.length;i++){
+                  rows += "<tr><td id='idf'>" + da.datalist[i][0] + "</td><td>" + da.datalist[i][1] + "</td><td>" + da.datalist[i][2] + "</td><td>" + da.datalist[i][3] + "</td><td><button id='aprbtn' style='background-color: red;color: white;''>Remove</button></td></tr>";
+                  console.log(da.datalist[i][0])
+                }
+                $( rows ).appendTo( "#customers tbody" );
+           
+                  
+                }
+                else{
+                alert("no data found")
+                }
+
+
+
+              //  alert(da.status[1])
+            }
+          });
+          
+            }
+
+
+            $("#customers").on('click','#aprbtn',function(){
+   
+   // get the current row
+   var currentRow=$(this).closest("tr"); 
+ 
+   var qid=currentRow.find("td:eq(0)").text(); 
+   alert(qid)
+   $.ajax({url:"/Get_shop_id/",
+           data:{
+               "qid":qid,
+               
+ 
+           },
+       success:function(da){
+                
+           window.location.href="{% url 'Buy_ration' %}"
+              
+             
+           
+       }
+     });
+ });
+            
+        }); 
+
+  </script>
+</html>

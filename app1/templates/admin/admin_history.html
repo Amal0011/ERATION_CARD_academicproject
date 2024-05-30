@@ -1,0 +1,292 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>customer shop</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/iconfonts/ionicons/dist/css/ionicons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/css/vendor.bundle.base.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/css/vendor.bundle.addons.css' %}">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{% static 'assets/css/shared/style.css' %}">
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{% static 'assets/css/demo_1/style.css' %}">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+
+    <style>.button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      border-radius: 5px;
+      color: white;
+      padding: 16px 62px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+    .button2 {
+      background-color: white; 
+      color: black; 
+      border: 2px solid #3ddd45;
+    }
+    
+    .button2:hover {
+      background-color: #3ddd45;
+      color: white;
+    }
+    
+    
+    .button3 {
+      background-color: white; 
+      color: black; 
+      border: 2px solid #f54c36;
+    }
+    
+    .button3:hover {
+      background-color: #f54c36;
+      color: white;
+    }
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      
+      #customers tr:nth-child(even){background-color: #f2f2f2;}
+      
+      #customers tr:hover {background-color: #ddd;}
+      
+      #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+      }
+    </style>
+    
+    <style>
+      html *
+{
+   font-size: 1em !important;
+   
+   font-family: Arial !important;
+}
+    </style>
+  </head>
+
+  <body >
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <label style="display: none;" id="langid">{{lang}}</label>
+        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center" style="background-color: rgb(8, 88, 163);">
+          <a class="navbar-brand brand-logo" href="#">Admin Home </a>
+         
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center">
+         
+    
+          <ul class="navbar-nav ml-auto">
+            
+            
+            <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
+              <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                <img class="img-xs rounded-circle" src="{% static 'assets/images/faces/face8.jpg' %}" alt="Profile image"> </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              
+                <a class="dropdown-item"  href="{% url 'LoginPage' %}" >Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
+              </div>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper" >
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar" style="background: rgb(37, 24, 151);" >
+          <ul class="nav" style="background-color: rgb(37, 24, 151);">
+           
+            <li class="nav-item nav-category">Main Menu</li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'AdminHome' %}">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Dashboard</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Adminviewstore' %}">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">View Registerd shops</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Add_to_stock' %}">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Add stock</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'View_stock' %}">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Update stock</span>
+              </a>
+            </li>
+
+           
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Admin_view_history' %}">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">View Purchase history</span>
+              </a>
+            </li>
+            
+         
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <center>
+            <div style="width: 100%;">
+<h3>Purchase history</h3>
+              
+
+<table id="customers">
+    <tr>
+      <th>User name</th>
+      <th>Shopname</th>
+      <th>Rice Quantity</th>
+      <th>Rice price</th>
+      <th>Wheat quantity</th>
+      <th>Wheat price</th>
+      <th>Kerosene Quantity</th>
+      <th>Kerosene price</th>
+      <th>Aata quantity</th>
+      <th>Aata Price</th>
+      <th>Total Amount</th>
+      <th>Month</th>
+      <th>Order status</th>
+    </tr>
+    {% for i in data%}
+    <tr>
+      <td>{{i.usid}}</td>
+      <td>{{i.shopname}}</td>
+      <td>{{i.Riceqt}}</td>
+      <td>{{i.Riceprc}}</td>
+      <td>{{i.Whtqt}}</td>
+      <td>{{i.Whtprc}}</td>
+      <td>{{i.Keroqt}}</td>
+      <td>{{i.Keroprc}}</td>
+      <td>{{i.Ataqt}}</td>
+      <td>{{i.Ataprc}}</td>
+      <td>{{i.total}}</td>
+      <td>{{i.month}}/{{i.year}}</td>
+      <td>{{i.status}}</td>
+    </tr>
+   {% endfor %}
+
+  </table>
+
+
+            </div>
+          </center>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+      
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{% static 'assets/vendors/js/vendor.bundle.base.js' %}"></script>
+    <script src="{% static 'assets/vendors/js/vendor.bundle.addons.js' %}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="{% static 'assets/js/shared/off-canvas.js' %}"></script>
+    <script src="{% static 'assets/js/shared/misc.js' %}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="{% static 'assets/js/demo_1/dashboard.js' %}"></script>
+    <!-- End custom js for this page-->
+    <script src="{% static 'assets/js/shared/jquery.cookie.js' %}" type="text/javascript"></script>
+  </body>
+  <script>
+    $(document).ready(function(){
+     
+     
+$("#paybtn").click(function(){
+
+cno=$('#cno').val()
+    
+    cvv=$('#cvv').val()
+    cap=$('#cap').val()
+
+     
+    if(cno==""|| cvv=="" || cap=="") 
+    {
+      alert("Please Enter details");
+    }
+    else if(cap!='gGphJD'){
+      alert("Incorrect Captcha")
+    }
+    else{
+   
+  $.ajax({url:"/buy_product/",
+         data:{  
+
+         },
+     success:function(da){
+                
+            if(da.msg==1){
+              alert("Payment Successfull")
+              window.location.href="{% url 'Pcode' %}"
+            }
+            else{
+              alert("Oops..Some error occured")
+            }
+              
+           
+         
+     }
+   });
+
+}
+});
+})
+
+
+
+ </script>
+</html>
+
+
+

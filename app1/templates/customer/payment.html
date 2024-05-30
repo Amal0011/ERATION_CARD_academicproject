@@ -1,0 +1,297 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>cart home</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/iconfonts/ionicons/dist/css/ionicons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/css/vendor.bundle.base.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/css/vendor.bundle.addons.css' %}">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{% static 'assets/css/shared/style.css' %}">
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{% static 'assets/css/demo_1/style.css' %}">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+    <style>
+
+.medusrtab {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  display: block;
+    height: auto;
+    overflow: auto;
+}
+
+.medusrtab td, .medusrtab th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.medusrtab tr:nth-child(even){background-color: #f2f2f2;}
+
+.medusrtab tr:hover {background-color: #ddd;}
+
+.medusrtab th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #af0606;
+  color: white;
+}
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+  width: 200px;
+  
+}
+
+
+    </style>
+    <style>
+      html *
+  {
+  
+   
+   font-family: Arial !important;
+  }
+    </style>
+  </head>
+
+  <body onload='googleTranslateElementInit()'>
+    <label style="display: none;" id="langid">{{lang}}</label>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>               <div class="select">
+        .
+<div style="display: none;" id="google_translate_element"></div>
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+var lang=document.getElementById("langid").innerHTML
+console.log("language==>"+lang)
+if(lang=="ml")
+{
+$.when(
+new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ml',
+layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element')
+).done(function(){
+var select = document.getElementsByClassName('goog-te-combo')[0];
+select.selectedIndex = 1;
+select.addEventListener('click', function () {
+select.dispatchEvent(new Event('change'));
+});
+select.click();
+});
+
+}
+else{
+
+
+}
+}
+</script>
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+  <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <label style="display: none;" id="langid">{{lang}}</label>
+    <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center" style="background-color: rgb(8, 88, 163);">
+      <a class="navbar-brand brand-logo" href="#"> Welcome Customer</a>
+     
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center">
+     
+
+      <ul class="navbar-nav ml-auto">
+        
+        
+        <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
+          <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+            <img class="img-xs rounded-circle" src="{% static 'assets/images/faces/face8.jpg' %}" alt="Profile image"> </a>
+          <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+          
+            <a class="dropdown-item"  href="{% url 'LoginPage' %}" >Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
+          </div>
+        </li>
+      </ul>
+      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+        <span class="mdi mdi-menu"></span>
+      </button>
+    </div>
+  </nav>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper" >
+    <!-- partial:partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar" style="background: rgb(37, 24, 151);" >
+      <ul class="nav" style="background-color: rgb(37, 24, 151);">
+       
+        <li class="nav-item nav-category">Main Menu</li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Customerhome' %}">
+            <i class="menu-icon typcn typcn-document-text"></i>
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'View_stores' %}">
+            <i class="menu-icon typcn typcn-document-text"></i>
+            <span class="menu-title">Purchase Ration</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Customer_history' %}">
+            <i class="menu-icon typcn typcn-document-text"></i>
+            <span class="menu-title">View purchase history</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'LoginPage' %}">
+            <i class="menu-icon typcn typcn-document-text"></i>
+            <span class="menu-title">Logout</span>
+          </a>
+        </li>
+     
+      </ul>
+    </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <center>
+            <h2>Payment</h2>
+            <div style="width: 80%;">
+            
+              <h4 style="color: red;margin-top: 30px;" class="text-center">Total amount to pay <label style="color: black;">{{total}}₹</label></h4>
+              
+                    <div id="myD" style="width: 50%;border: 1px solid black;background-color: blanchedalmond;border-radius: 10px">
+                      <div class="top-margin">
+                        <label>Enter Card number<span class="text-danger" style="margin-top: 10px;">*</span></label><br>
+                        <input type="number" class="form-control" id="cno" style="width: 80%;">
+                      </div>
+                      <div class="top-margin">
+                        <label>CVV <span class="text-danger">*</span></label><br>
+                        <input type="number" class="form-control" id="cvv" style="width: 40%;">
+                      </div><br>
+                      <div class="top-margin">
+                        <img src="{% static '/images/captcha.jpg' %}" width="100" height="50" alt="Flowers in Chania">
+                      </div><br>
+                      <div class="top-margin">
+                        <label>Enter above captcha here</label>
+                        <input type="number" class="form-control" id="cap" style="width: 40%;">
+                      </div><br>
+                        <div class="top-margin" style="padding-bottom: 30px;">
+                      <div class="col-lg-4 text-center" >
+                        <button  id="paybtn" class="button" style="margin-left: -50px;" >Confirm Payment</button>
+                      </div>
+              </div></div>
+      
+            </div>
+          </center>
+          
+      
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{% static 'assets/vendors/js/vendor.bundle.base.js' %}"></script>
+    <script src="{% static 'assets/vendors/js/vendor.bundle.addons.js' %}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="{% static 'assets/js/shared/off-canvas.js' %}"></script>
+    <script src="{% static 'assets/js/shared/misc.js' %}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="{% static 'assets/js/demo_1/dashboard.js' %}"></script>
+    <!-- End custom js for this page-->
+    <script src="{% static 'assets/js/shared/jquery.cookie.js' %}" type="text/javascript"></script>
+    <script>
+      $(document).ready(function(){
+       
+       $("#aprusr").on('click','#aprbtn',function(){
+   
+   // get the current row
+   var currentRow=$(this).closest("tr"); 
+ 
+   var qid=currentRow.find("td:eq(0)").text(); 
+   // alert(qid)
+   $.ajax({url:"/delete_cart/",
+           data:{
+               "qid":qid,
+               
+ 
+           },
+       success:function(da){
+                  
+           
+                alert("Removed successfully")
+                window.location.href="{% url 'Cart_page' %}"
+             
+           
+       }
+     });
+ });
+ 
+ $("#paybtn").click(function(){
+
+  cno=$('#cno').val()
+			
+			cvv=$('#cvv').val()
+			cap=$('#cap').val()
+	
+		   
+			if(cno==""|| cvv=="" || cap=="") 
+			{
+				alert("Please Enter details");
+			}
+			else if(cap!='gGphJD'){
+				alert("Incorrect Captcha")
+			}
+      else{
+     
+    $.ajax({url:"/buy_product/",
+           data:{  
+ 
+           },
+       success:function(da){
+                  
+           
+                alert("Payment Successfull")
+                window.location.href="{% url 'Cart_page' %}"
+             
+           
+       }
+     });
+
+ }
+ });
+ })
+
+
+
+   </script>
+  </body>
+</html>

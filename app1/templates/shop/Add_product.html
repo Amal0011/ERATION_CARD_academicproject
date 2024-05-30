@@ -1,0 +1,328 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Add </title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/iconfonts/ionicons/dist/css/ionicons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/css/vendor.bundle.base.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/css/vendor.bundle.addons.css' %}">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{% static 'assets/css/shared/style.css' %}">
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{% static 'assets/css/demo_1/style.css' %}">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+    <script src="{% static 'assets/jquery-2.1.4.min.js' %}"></script>
+    
+  </head>
+  <style>
+    html *
+{
+
+ 
+ font-family: Arial !important;
+}
+  </style>
+  <body onload='googleTranslateElementInit()'>
+    <label style="display: none;" id="langid">{{lang}}</label>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>               <div class="select">
+        .
+<div style="display: none;" id="google_translate_element"></div>
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+  <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <label style="display: none;" id="langid">{{lang}}</label>
+    <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center" style="background-color: rgb(8, 88, 163);">
+      <a class="navbar-brand brand-logo" href="#"> Welcome User</a>
+     
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center">
+     
+
+      <ul class="navbar-nav ml-auto">
+        
+        
+        <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
+          <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+            <img class="img-xs rounded-circle" src="{% static 'assets/images/faces/face8.jpg' %}" alt="Profile image"> </a>
+          <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+          
+            <a class="dropdown-item"  href="{% url 'LoginPage' %}" >Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
+          </div>
+        </li>
+      </ul>
+      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+        <span class="mdi mdi-menu"></span>
+      </button>
+    </div>
+  </nav>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item nav-profile">
+          <a href="#" class="nav-link">
+            <div class="profile-image">
+              <img class="img-xs rounded-circle" src="{% static 'assets/images/faces/face8.jpg' %}" alt="profile image">
+              <div class="dot-indicator bg-success"></div>
+            </div>
+            <div class="text-wrapper">
+              <p class="profile-name">{{name}} </p>
+            </div>
+          </a>
+        </li>
+        <li class="nav-item nav-category">Main Menu</li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Shophome' %}">
+            <i class="menu-icon typcn typcn-document-text"></i>
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <i class="menu-icon typcn typcn-coffee"></i>
+            <span class="menu-title">Product Management</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'Adminviewstore' %}">Add new product</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'View_items' %}">View/Edit product</a>
+              </li>
+             
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#ui-bac" aria-expanded="false" aria-controls="ui-basic">
+            <i class="menu-icon typcn typcn-coffee"></i>
+            <span class="menu-title">Orders</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-bac">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'Admin_add_cat' %}">View Orders</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'Admin_add_Subcat' %}">Add Sub Categoty</a>
+              </li>
+             
+            </ul>
+          </div>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'LoginPage' %}">
+            <i class="menu-icon typcn typcn-document-text"></i>
+            <span class="menu-title">Logout</span>
+          </a>
+        </li>
+     
+      </ul>
+    </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div style="width: 100%;margin-top: 20px;">
+            <center>
+              <div style="width: 60%;height: 1000px;background-color: rgb(223, 223, 223);">
+                <h3 style="padding-top: 20px; ">Add Category</h3>
+                <div class="form-group" style="width: 70%;margin-top: 50px;">
+
+                  <input type="number" class="form-control form-control-lg" id="pname" placeholder="Product name">
+                </div>
+                <div class="form-group" style="width: 70%;">
+
+                  <select class="form-control form-control-lg" name="diss" id="selectId" >
+                    <option value="">Select Category</option>
+                    {% for i in ob1 %}
+                    <option value="{{i.Category}}">{{i.Category}}</option>
+                    {% endfor %}
+                  </select> 
+                </div>
+
+                <div class="form-group" style="width: 70%;">
+
+                  <select class="form-control form-control-lg" name="diss" id="sel2" >
+                    <option value="">Select Sub Category</option>
+                    
+                  </select> 
+                </div>
+             
+                <div class="form-group" style="width: 70%;">
+
+                  <input type="number" class="form-control form-control-lg" id="prc" placeholder="Product price">
+                </div>
+                <div class="form-group" style="width: 70%;">
+
+                  <input type="number" class="form-control form-control-lg" id="stck" placeholder="Number of items in stock">
+                </div>
+                <div class="form-group" style="width: 70%;">
+                  <textarea rows="4" cols="43" style="text-size-adjust: 10px;" id="info" placeholder="Product description"></textarea>                  </textarea>
+                </div>
+                <div style="width: 500px; margin: auto;">
+                  <label>Select product image</label>
+                  <fieldset name="Multiple Files Upload">
+                      {% if msg %} {% autoescape off %} {{ msg }} {% endautoescape %} {% endif %}
+                      <div id="msg"></div>
+                      <p>
+                          {% csrf_token %}
+                          <input type="file" id="multiFiles" name="files[]" multiple="multiple"/>
+                          <!-- <button id="upload">Upload</button> -->
+                      </p>
+                  </fieldset>
+              </div>
+                <div class="mt-3" style="width: 200px;">
+                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" id="upload">Add</a>
+                </div>
+              </div>
+              
+            </center>
+            
+          </div>
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{% static 'assets/vendors/js/vendor.bundle.base.js' %}"></script>
+    <script src="{% static 'assets/vendors/js/vendor.bundle.addons.js' %}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="{% static 'assets/js/shared/off-canvas.js' %}"></script>
+    <script src="{% static 'assets/js/shared/misc.js' %}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="{% static 'assets/js/demo_1/dashboard.js' %}"></script>
+    <!-- End custom js for this page-->
+    <script src="{% static 'assets/js/shared/jquery.cookie.js' %}" type="text/javascript"></script>
+  </body>
+  <script>
+
+$('#selectId').on('change', function () {
+     var selectVal = $("#selectId option:selected").val();
+     
+
+     $.ajax({url:"/get_sub_cat/",
+          data:{
+              "cat":selectVal,
+           
+
+          },
+      success:function(da){
+                 
+             if(da.data.length==0)  {
+               alert("No sub category found")
+             }  
+             else {
+              $('#sel2').empty()
+              $('#sel2').append($('<option>').val("").text("Select sub category"))
+               for(i=0;i<da.data.length;i++){
+                $('#sel2').append($('<option>').val(da.data[i]).text(da.data[i]))
+
+               }
+               
+             }
+            
+          
+      }
+    });
+
+
+});
+
+$(document).ready(function (e) {
+                
+              
+                $('#upload').on('click', function () {
+                  var form_data = new FormData();
+                  var pname=$('#pname').val();
+                  var cat=$('#selectId').val();
+                  var subcat=$('#sel2').val();
+                  var price=$('#prc').val();
+                  var info=$('#info').val();
+                  var stck=$('#stck').val();
+                  var ins = document.getElementById('multiFiles').files.length;
+                
+                  
+                  
+                  if(pname=="" || cat=="" || subcat=="" || price=="" || info=="" || stck==""){
+
+                    alert("Please provide all product details!!")
+                    }
+                    else if(ins == 0) {
+                        alert("Please select any image!!")
+                    
+                    return;
+                  }
+                  
+                  else{
+ 
+                            // alert(sts)
+                  for (var x = 0; x < ins; x++) {
+                    form_data.append("files[]", document.getElementById('multiFiles').files[x]);
+                  }
+                  form_data.append("pname", pname);
+                  form_data.append("cat", cat);
+                  form_data.append("subcat", subcat);
+                  form_data.append("price", price);
+                  form_data.append("info", info);
+                  form_data.append("stck", stck);
+                  csrf_token = $('input[name="csrfmiddlewaretoken"]').val();
+                  
+                  //console.log(csrf_token);
+                  
+                  form_data.append("csrfmiddlewaretoken", csrf_token);
+                  
+                  $.ajax({
+                    url: "/upload_item/", // point to server-side URL
+                    dataType: 'json', // what to expect back from server
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    //data: {'data': form_data, 'csrfmiddlewaretoken': csrf_token},
+                    data: form_data,
+                    type: 'post',
+                    success: function (response) { // display success response
+                      if(response.msg=="exist"){
+                        alert("Product already exist!!")
+                      }
+                      else if(response.msg=="yes"){
+                        alert("Product added successfully ")
+                        window.location.href="{% url 'Add_items' %}"
+                      }
+                      else{
+                        alert("Some error occured!!!")
+                      }
+                    },
+                    error: function (response) {
+                       // display error response
+                    }
+                  });
+
+
+
+                }
+                });
+              });
+  </script>
+</html>
